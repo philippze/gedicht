@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from cms_gedicht.views import KeinValentinstagsgedichtView
 
 urlpatterns = [
+    path('kein-valentinstagsgedicht/', KeinValentinstagsgedichtView.as_view()),
     path('admin/', admin.site.urls),
 ]
