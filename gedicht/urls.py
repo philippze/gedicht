@@ -21,8 +21,8 @@ from django.views.generic import RedirectView
 from cms_gedicht.views import KeinValentinstagsgedichtView, BestellungCreateView
 
 urlpatterns = [
-    path('', RedirectView.as_view(url='/kein-valentinstagsgedicht/')),
-    path('kein-valentinstagsgedicht/', KeinValentinstagsgedichtView.as_view()),
-    path('admin/', admin.site.urls),
-    path('api/bestellung/create/', BestellungCreateView.as_view(), name="bestellung-create"),
+    path('gedicht', RedirectView.as_view(url='/gedicht/kein-valentinstagsgedicht/')),
+    path('gedicht/kein-valentinstagsgedicht/', KeinValentinstagsgedichtView.as_view()),
+    path('gedicht/admin/', admin.site.urls),
+    path('gedicht/api/bestellung/create/', BestellungCreateView.as_view(), name="bestellung-create"),
 ]

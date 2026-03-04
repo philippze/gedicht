@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$#4a_ql1#&#2qo63=t=u^&fcv)if=j&4$#sq1ft^&gf8vxq*-a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['www.zedler.it']
+ALLOWED_HOSTS = ['www.zedler.it', '127.0.0.1']
 
 
 # Application definition
@@ -118,8 +118,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
-FORCE_SCRIPT_NAME = "/gedicht2"
 
 DEFAULT_FROM_EMAIL = 'noreply@zedler.it'
 
