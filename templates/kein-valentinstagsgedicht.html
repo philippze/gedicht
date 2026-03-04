@@ -1,27 +1,73 @@
 {% extends 'base.html' %}
 
 {% block main %}
-        <div class="text">
+    <div class="text">
+        <p>
+            Wenn ich mal bei die bliebe,
+            <br>
+            Dann wär' ich voller Kartoffelsalat.
+        </p>
+        <p>
+            Ich gäb' dir mit Genuss
+            <br>
+            So manchen dicken Kartoffelsalat.
+        </p>
+        <p>
+            Und kraulte unnachahmbar
+            <br>
+            Gefühlvoll dir dein Kartoffelsalat.
+        </p>
+        <p>
+            Doch heute bleib' ich hart,
+            <br>
+            Denk' nur an Kartoffelsalat.
+        </p>
+        <div style="height: 200px"></div>
+        <form class="js-bestellung-form" method="post" action="{% url 'bestellung-create' %}">
             <p>
-                Wenn ich mal bei die bliebe,
-                <br>
-                Dann wär' ich voller Kartoffelsalat.
+                Natürlich hätte ich dir lieber ein richtiges Valentinstagsgedicht geschrieben.
+                Soll ich?
             </p>
-            <p>
-                Ich gäb' dir mit Genuss
-                <br>
-                So manchen dicken Kartoffelsalat.
-            </p>
-            <p>
-                Und kraulte unnachahmbar
-                <br>
-                Gefühlvoll dir dein Kartoffelsalat.
-            </p>
-            <p>
-                Doch heute bleib' ich hart,
-                <br>
-                Denk' nur an Kartoffelsalat.
-            </p>
-</div>
+            {% csrf_token %}
+            <input type="hidden" name="name" value="Valentinstagsgedicht">
+            <input type="submit" class="contact__submit js-contact__submit" value="Ja, bitte!"/>
+        </form>
+        <div class="js-form-success">
+
+        </div>
+    </div>
+    <script>
+        (function () {
+            const form = document.querySelector('.js-bestellung-form');
+            const successContainer = document.querySelector('.js-form-success');
+
+
+            form.addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                const formData = new FormData(form);
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Oh nein! Ein technischer Fehler ist passiert. Bestell lieber nochmal per WhatsApp.');
+                    }
+
+                    const result = await response.text();
+
+                    document.querySelector('.contact__submit').remove();
+                    successContainer.innerHTML = result;
+
+                } catch (error) {
+                    successContainer.innerHTML = '<p>Oh nein! Ein technischer Fehler ist passiert. Bestell lieber nochmal per WhatsApp.</p>';
+                    console.error('Form submission error:', error);
+                }
+            });
+        })();
+    </script>
 {% endblock main %}
 

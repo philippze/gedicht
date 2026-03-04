@@ -104,9 +104,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'de'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'CET'
+USE_I18N = True
 
 USE_I18N = True
 
@@ -117,3 +118,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+DEFAULT_FROM_EMAIL = 'noreply@zedler.it'
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = 'mail.wservices.ch'
+EMAIL_PORT = '465'
+EMAIL_HOST_USER = 'noreply@zedler.it'
+EMAIL_HOST_PASSWORD = 'cqm4HUJ_gey_nrv6tad'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True

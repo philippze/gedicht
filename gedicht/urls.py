@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from cms_gedicht.views import KeinValentinstagsgedichtView
+from cms_gedicht.views import KeinValentinstagsgedichtView, BestellungCreateView
 
 urlpatterns = [
     path('kein-valentinstagsgedicht/', KeinValentinstagsgedichtView.as_view()),
     path('admin/', admin.site.urls),
+    path('api/bestellung/create/', BestellungCreateView.as_view(), name="bestellung-create"),
 ]
