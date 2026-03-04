@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-$#4a_ql1#&#2qo63=t=u^&fcv)if=j&4$#sq1ft^&gf8vxq*-a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.zedler.it']
 
 
 # Application definition
@@ -119,6 +119,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+FORCE_SCRIPT_NAME = "/gedicht2"
 
 DEFAULT_FROM_EMAIL = 'noreply@zedler.it'
 
