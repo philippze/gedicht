@@ -21,9 +21,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-$#4a_ql1#&#2qo63=t=u^&fcv)if=j&4$#sq1ft^&gf8vxq*-a'
+CSRF_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = ["https://www.zedler.it"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['www.zedler.it', '127.0.0.1']
 
