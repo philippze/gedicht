@@ -16,9 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import RedirectView
+
 from cms_gedicht.views import KeinValentinstagsgedichtView, BestellungCreateView
 
 urlpatterns = [
+    path('', RedirectView.as_view(url='/kein-valentinstagsgedicht/')),
     path('kein-valentinstagsgedicht/', KeinValentinstagsgedichtView.as_view()),
     path('admin/', admin.site.urls),
     path('api/bestellung/create/', BestellungCreateView.as_view(), name="bestellung-create"),
